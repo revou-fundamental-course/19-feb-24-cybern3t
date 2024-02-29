@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="asset/Logo OMAR-01-01.png" alt="Company Logo" height="50">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Our Profile</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Message Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <p>Hi Arie, Welcome to My Website</p>
+    <div class="banner">
+        <img src="asset/Logo OMAR-01-2.png" alt="banner">
+    </div>
+    <div class="hq">
+        <h1>Our Headquarter</h1>
+    </div>
+    <div class="circle-container">
+        <div class="circle">
+            <img src="asset/monas.jpg" alt="Jakarta" height="100">
+            <div class="circle-text">Jakarta</div>
+        </div>
+        <div class="circle">
+            <img src="asset/Bandung.jpg" alt="Bandung" height="100">
+            <div class="circle-text">Bandung</div>
+        </div>
+        <div class="circle">
+            <img src="asset/surabaya.jpg" alt="Surabaya" height="100">
+            <div class="circle-text">Surabaya</div>
+        </div>
+    </div>
+    <div class="form-container"></div>
+    <form id="message-form">
+        <h2>Message Us</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="birthdate">Date of Birth:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <div class="info-container" id="submitted-info">
+        <h2>Submitted Information</h2>
+    </div>
+</div>
+    <footer>
+        Created By Arie
+    </footer>
+    <script>
+        document.getElementById('message-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var birthdate = document.getElementById('birthdate').value;
+            var gender = document.getElementById('gender').value;
+            var message = document.getElementById('message').value;
+            var currentTime = new Date().toLocaleString();
+            var submittedInfo = `
+                <h2>Submitted Information</h2>
+                <p>Time of Submission: ${currentTime}</p>
+                <p>Name: ${name}</p>
+                <p>Date of Birth: ${birthdate}</p>
+                <p>Gender: ${gender}</p>
+                <p>Message: ${message}</p>
+            `;
+            document.getElementById('submitted-info').innerHTML = submittedInfo;
+            // Reset form
+            document.getElementById('message-form').reset();
+        });
+        </script>
+</body>
+</html>
